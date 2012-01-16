@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   ## the sub! line in the Rakefile
   s.name              = 'dnf_translator'
   s.version           = '0.1.0'
-  s.date              = '2012-01-10'
+  s.date              = '2012-01-16'
 
   ## Make sure your summary is short. The description may be as long
   ## as you like.
