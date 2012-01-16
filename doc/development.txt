@@ -1,0 +1,22 @@
+How to install the gem from the source code
+========================
+
+    $ git clone git://github.com/alainravet/dnf_translator.git
+    $ cd dnf_translator
+    $ rake build
+
+
+How to execute the tests
+========================
+
+    $ cd dnf_translator
+    $ rake test
+
+
+How to test interactively in the console
+========================
+
+    $ cd dnf_translator
+    $ rake console
+        > DNFTranslator::English.translate('(a | b | c) -(d | e)')
+        #=> 'a OR b OR c AND no mention of d OR e'

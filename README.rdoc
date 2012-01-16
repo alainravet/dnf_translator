@@ -1,0 +1,7 @@
+= Viralheat's DNF translator
+
+Translates Viralheat's query into English :
+
+  puts DNFTranslator::English.translate('(a | b | c) -(d | e)')
+  #=> 'a OR b OR c AND no mention of d OR e'
+
