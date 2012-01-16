@@ -7,8 +7,10 @@ include DNFTranslator::Parser
 
 def check_parsing(source_string, expected_required_values, expected_forbidden_values = [])
   @stack = DNFTranslator::Parser::DNFExpressionParser.new(source_string).parse
-  assert_equal expected_required_values , @stack.elems_required,  "REQUIRED VALUES ERROR"
-  assert_equal expected_forbidden_values, @stack.elems_forbidden, "EXCLUDED VALUES ERROR"
+  unless @stack == DNFTranslator::Parser::ParsingResults.new(expected_required_values, expected_forbidden_values )
+    assert_equal expected_required_values , @stack.elems_required,  "REQUIRED VALUES ERROR"
+    assert_equal expected_forbidden_values, @stack.elems_forbidden, "EXCLUDED VALUES ERROR"
+  end
 end
 
 def assert_translation_is(expected_translation, params)

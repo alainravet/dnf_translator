@@ -35,17 +35,8 @@ class DNFTranslator::Parser::DNFLexer < DNFTranslator::Base::Lexer
     read_next_token_if_it_matches(Pattern::OR_EXPRESSION_SEPARATOR_PATTERN)
   end
 
-  def next_token_is_OR_separator?
-    next_token_matches? Pattern::OR_EXPRESSION_SEPARATOR_PATTERN
-  end
-
   def next_token_is_close_parenthesis?
     next_token_matches? Pattern::END_PARENS_PATTERN
-  end
-
-
-  def next_token_is_open_parenthesis?
-    next_token_matches? Pattern::START_PARENS_PATTERN
   end
 
   def read_next_token_if_a_literal_or_phrase

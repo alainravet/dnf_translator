@@ -3,9 +3,9 @@ class DNFTranslator::Parser::ParsingResults
 
   attr_reader :elems_required, :elems_forbidden
 
-  def initialize
-    @elems_required  = []
-    @elems_forbidden = []
+  def initialize(elems_required = [], elems_forbidden =[])
+    @elems_required  = elems_required
+    @elems_forbidden = elems_forbidden
   end
 
 # ------------------------------------------------------------------------------

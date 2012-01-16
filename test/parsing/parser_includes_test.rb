@@ -173,7 +173,6 @@ class ParserIncludesTest <  Test::Unit::TestCase
     assert_syntax_error_in "( |)"
     assert_syntax_error_in "( -)"
     assert_syntax_error_in "( a | b c)"
-   #assert_syntax_error_in "one | two five"
   end
 
   def test_syntax_error_1
@@ -200,6 +199,7 @@ class ParserIncludesTest <  Test::Unit::TestCase
     assert_syntax_error_in "|-"
     assert_syntax_error_in "-|"
     assert_syntax_error_in "(-(one))"
+    assert_syntax_error_in "(one two three"
   end
 
 end
