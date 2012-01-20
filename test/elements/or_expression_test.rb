@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class OrExpressionTest < Test::Unit::TestCase
+class OrExpressionTest < DNFTranslator::TestCase
   include DNFTranslator::Parser
   def setup
     @a = Element::Literal.new( 'a')

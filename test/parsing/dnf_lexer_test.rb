@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class DNFLexerTest < Test::Unit::TestCase
+class DNFLexerTest < DNFTranslator::TestCase
 
   def test_lex_an_empty_string
     lexer = DNFTranslator::Parser::DNFLexer.new(" ")

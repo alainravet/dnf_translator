@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ParserExcludeTest <  Test::Unit::TestCase
+class ParserExcludeTest <  DNFTranslator::TestCase
 
   def test_exclude_one_word
     check_parsing "-one"  , [], [LIT_ONE]

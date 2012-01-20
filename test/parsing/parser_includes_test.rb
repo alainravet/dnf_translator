@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ParserIncludesTest <  Test::Unit::TestCase
-
+class ParserIncludesTest <  DNFTranslator::TestCase
+  include DNFTranslator::Parser
 #-------------
 # Nested parenthesis
 #-------------

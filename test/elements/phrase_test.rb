@@ -1,6 +1,8 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class PhraseTest <  Test::Unit::TestCase
+class PhraseTest <  DNFTranslator::TestCase
+
+  include DNFTranslator::Parser
 
   def test_equality
     assert_equal Element::Phrase.new('a b c'),

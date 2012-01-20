@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../test_helper'
-class AcceptanceTest <  Test::Unit::TestCase
+class AcceptanceTest <  DNFTranslator::TestCase
 
   def test_1
     assert_translation_is   'a OR b OR c AND no mention of d OR e'                  , :source =>   '(a | b | c) -(d | e)'

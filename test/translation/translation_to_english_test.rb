@@ -2,7 +2,7 @@
 
 require File.dirname(__FILE__) + '/../test_helper'
 
-class TranslationToEnglishTest <  Test::Unit::TestCase
+class TranslationToEnglishTest <  DNFTranslator::TestCase
 
   def test_translate_1_literal
     assert_translation_is "one", :source => "one"
