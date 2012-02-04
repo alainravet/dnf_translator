@@ -7,6 +7,16 @@ module DNFTranslator
     def test_to_avoid_a__No_tests_were_specified__error
     end
 
+    def check_lexed_literals_or_phrases_are(expected, params)
+      lexer = DNFTranslator::Parser::DNFLexer.new(params[:source])
+      actual = [] ;
+      expected.length.times do
+        el = lexer.read_next_token_if_a_literal_or_phrase;
+        actual << (el && el.to_s)
+      end
+      assert_equal expected, actual
+    end
+
     def check_parsing(source_string, expected_required_values, expected_forbidden_values = [])
       stack = DNFTranslator::Parser::DNFExpressionParser.new(source_string).parse
       unless stack == DNFTranslator::Parser::ParsingResults.new(expected_required_values, expected_forbidden_values )
@@ -27,11 +37,19 @@ module DNFTranslator
     end
 
     def and_expr(*elements)
+      elements = elements.collect{|el| literal(el) }
       DNFTranslator::Parser::Element::AndExpression.new *Array(elements)
     end
 
     def or_expr(*elements)
+      elements = elements.collect{|el| literal(el) }
       DNFTranslator::Parser::Element::OrExpression.new *Array(elements)
+    end
+
+    def literal(el)
+      el.is_a?(String) ?
+          DNFTranslator::Parser::Element::Literal.new(el) :
+          el
     end
 
   end
