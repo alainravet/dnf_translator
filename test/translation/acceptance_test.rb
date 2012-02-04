@@ -55,4 +55,9 @@ class AcceptanceTest <  DNFTranslator::TestCase
   def test_12_syntax_error
     assert_translation_is   "This is not a valid expression"  , :source => '-| b'
   end
+
+  def test_13_example_from_the_video
+    assert_translation_is %Q|apple AND imac OR apple AND iphone OR apple.com OR engadget AND no mention of ipad OR the phrase "apple pie"|,
+                          :source => '((apple imac) | (apple iphone) | "apple.com" | engadget) -ipad -"apple pie"'
+  end
 end

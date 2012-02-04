@@ -7,8 +7,8 @@ module DNFTranslator::Parser
 
     OR_EXPRESSION_SEPARATOR_PATTERN     = /\s*\|\s*/
 
-    QUOTED_MULTIWORDS_PHRASE_PATTERN    = /^('[^']+\s+[^']+'|"[^"]+\s+[^"]+")/
-    QUOTED_SINGLEWORD_LITERAL_PATTERN   = /^('[^'\s]+'|"[^"\s]+")/
+    QUOTED_MULTIWORDS_PHRASE_PATTERN    = /^[-]?('[^']+\s+[^']+'|"[^"]+\s+[^"]+")/
+    QUOTED_SINGLEWORD_LITERAL_PATTERN   = /^[-]?('[^'\s]+'|"[^"\s]+")/
     UNQUOTED_LITERAL_PATTERN            = /^["']?[-]?[#]?(\w|\.)+["']?/
   end
 end

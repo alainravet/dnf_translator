@@ -24,7 +24,7 @@ class DNFTranslator::Parser::DNFExpressionParser
 
       raw_elems_forbidden.each do |item|
         #store excluded items are stored in their positive form in stack.items_excluded :
-        item.absolufy! if item.is_a?(Element::Literal)
+        item.absolufy! if item.respond_to?(:absolufy!)
       end
       case raw_elems_forbidden.size
         when 0
@@ -89,7 +89,7 @@ class DNFTranslator::Parser::DNFExpressionParser
   end
 
   def must_exclude_found_element?(match)
-    @minus_mode || (match.is_a?(Element::Literal) && match.starts_with_minus?)
+    @minus_mode || ([Element::Literal, Element::Phrase].include?(match.class) && match.starts_with_minus?)
   end
 
 

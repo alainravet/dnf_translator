@@ -45,4 +45,14 @@ class DNFLexerTest < DNFTranslator::TestCase
     check_lexed_literals_or_phrases_are expected, :source => source
   end
 
+  def test_lex_individual_words_prefixed_by_minus_between_quotes
+    source    = " -ab -'cd' -'ef gh'"
+    expected  = ["-ab", "-'cd'", "-'ef gh'", nil]
+    check_lexed_literals_or_phrases_are expected, :source => source
+
+    source    = ' -ab -"cd" '
+    expected  = ["-ab", '-"cd"', nil]
+    check_lexed_literals_or_phrases_are expected, :source => source
+  end
+
 end
