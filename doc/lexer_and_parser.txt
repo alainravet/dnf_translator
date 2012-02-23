@@ -1,0 +1,37 @@
+source : https://github.com/proglangclass/interpreter
+
+  +---------------------------------------------------------------------------------+
+  |  > bundle                                                                       |
+  |  > rex lexer_parser/tokens.rex  -o lib/lexer_parser/lexer.rb                    |
+  |  > racc lexer_parser/grammar.y -o lib/lexer_parser/parser.rb                    |
+  |                                                                                 |
+  |  > cd lib/lexer_parser                                                          |
+  |  > irb -I. -rlexer -rparser                                                     |
+  |    >> Lexer.new.run "1+1"                                                       |
+  |      => [[:NUMBER, 1], ["+", "+"], [:NUMBER, 1]]                                |
+  |    >> Parser.new.parse "1+1"                                                    |
+  |      => #<struct Nodes nodes=[ #<struct CallNode receiver=#<struct NumberNode value=1>, method="+", arguments=[#<struct NumberNode value=1> ]>]>
+  +---------------------------------------------------------------------------------+
+
+
+============================
+step 1 : the lexer
+============================
+
+  compile : (=> generates lexer.rb)
+    > rex lexer_parser/tokens.rex  -o lib/lexer_parser/lexer.rb
+
+  test
+    > test/lexer_parser/lexer_test.rb
+
+
+
+============================
+step 2 : the parser
+============================
+
+  compile : (=> generates parser.rb)
+    > racc lexer_parser/grammar.y -o lib/lexer_parser/parser.rb
+
+  test
+    > test/lexer_parser/parser_test.rb
